@@ -1,3 +1,12 @@
 <?php
 
-for ($i = 0, $j = 1; $i <= 10; print $i , $i++);
+$names = [
+    'name' => 'ahmed',
+    'age' => 25,
+    'job' => 'software engineer',
+    'skills' => ['PHP', 'MySQL', 'CSS', 'HTML5'],
+];
+
+echo $names['skills'][1]; echo '<hr>';
+$names['skills'][]= 'OOP';
+echo $names['skills'][4];
