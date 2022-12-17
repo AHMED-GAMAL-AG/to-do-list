@@ -1,11 +1,10 @@
 <?php
 
+// null coalescing operator (PHP v.7)
 
-$a = 0;
-echo isset($a) ? 'defined' :'undefined' ; echo '<hr>';
+$name = 'ahmed';
+$email = 'email@example.com';
 
-const b = 100;
-// echo isset(b) ? 'defined' :'undefined' ; // parse error use defined() instead
+echo isset($name) ? $name : 'nobody'; echo '<hr>';
 
-echo defined('b') ? 'defined' :'undefined' ; echo '<hr>';
-echo defined("b") ? 'defined' :'undefined' ; echo '<hr>';
+echo $name ?? $email ?? 'nobody'; // email if not defined then email if not defined then nobody
