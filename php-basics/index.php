@@ -16,23 +16,19 @@ $employes = [
     ],
 ];
 
-$count = count($employes);
-for ($i = 0; $i < $count; $i++) {
-    echo $employes[$i]['name'];
-    for ($j = 0; $j < count($employes[$i]['skills']); $j++) {
-        echo ' - ' . $employes[$i]['skills'][$j];
-    }
+$skill_count = count($employes[1]['skills']);
+
+foreach ($employes as $employee) {
+    echo $employee['name'] . ' - ' . $employee['job'];
     echo '<hr>';
 }
 
-$i = 0;
-while ($i < $count) {
-    $j = 0;
-    echo $employes[$i]['name'];
-    while ($j < count($employes[$i]['skills'])) {
-        echo ' - ' . $employes[$i]['skills'][$j];
-        $j++;
+echo '<hr>';
+
+foreach ($employes as $key => $employee) {
+    echo $employee['name'];
+    for ($i = 0; $i < count($employes[$key]['skills']); $i++) {
+        echo ' - ' . $employee['skills'][$i];
     }
-    $i++;
     echo '<hr>';
 }
