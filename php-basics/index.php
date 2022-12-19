@@ -1,16 +1,11 @@
 <?php
 
-function sum(...$numbers) // pass as many agrguiments as you want it will be put in an array $numbers
-{
-    $sum = 0;
-    foreach ($numbers as  $num) {
-        $sum += $num;
-    }
-    echo $sum;
-}
+// closure function
 
-sum (5,5,50);
-echo '<hr>';
+$myfunc = function ($number) {
+    echo $number * 2 . ' ';
+};
 
-$numbers = [1,2,3,4,5];
-sum (...$numbers); // put ... to pass an array
+$ar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+array_map($myfunc, $ar);
