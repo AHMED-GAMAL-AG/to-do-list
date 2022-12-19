@@ -1,31 +1,22 @@
 <?php
 
-// closure function
-$ar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-$num = 3; // to be passed both functions
-
-$myfunc = function ($number) use ($num) { // should use use() to use external variable
-    echo ($number * 2 + $num) . ' ';
-};
-
-function regular(...$number)
+class Vehicle
 {
-    global $num;  // use globe to use external variable
-    foreach ($number as $n) {
-        echo ($n * 2 + ($num)) . ' ';
+    public $modle;
+    public $year;
+
+    public function __construct($m, $y)
+    {
+        $this->modle = $m;
+        $this->year = $y;
+    }
+
+    public function start()
+    {
+        echo "{$this->modle} engine started!";
     }
 }
 
-// arrow function (php v7.4)
-$arrow_func = fn ($number) => ($number * 2 + $num); // can use num with any problems
+$v1 =  new Vehicle("BMW" , 2023);
 
-array_map($myfunc, $ar);
-echo '<hr>';
-
-regular(...$ar);
-echo '<hr>'; // ... to pass array
-
-foreach (array_map($arrow_func, $ar) as $num) {
-    echo $num . ' ';
-}
-echo '<hr>';
+$v1->start();
