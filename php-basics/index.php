@@ -36,6 +36,11 @@ class Vehicle
     {
         echo "{$this->modle} engine started!"; echo '<hr>';
     }
+
+    public function print_info()
+    {
+        echo "{$this->modle} / {$this->year}"; 
+    }   
 }
 
 // is-a car is a vehicle
@@ -49,9 +54,11 @@ class Car extends Vehicle
         $this->color = $c;
     }
 
-    public function print_info()
+    public function print_info() // polymorphism , overriding
     {
-        echo "{$this->modle} / {$this->year}"; // i can acces them from parent class bec they are protected not private
+        // echo "{$this->modle} / {$this->year}"; // i can acces them from parent class bec they are protected not private
+        parent::print_info(); // to get modle and year
+        echo " / {$this->color}"; 
     }   
 }
 
@@ -60,4 +67,4 @@ $v = new Vehicle('airplain','1999');
 $c = new Car('toyota','2023' , 'black');
 
 $c->start();
-$c->print_info();
+$c->print_info(); //override from parent 
