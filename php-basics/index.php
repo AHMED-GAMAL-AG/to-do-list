@@ -1,39 +1,18 @@
 <?php
 
-interface ShapeInterface
+
+trait MyTrait
 {
-    public function perimeter();
-}
-
-abstract class Shape // cant create object of it
-{
-    abstract function area();
-}
-
-class Square extends Shape implements ShapeInterface
-{
-    private $Length;
-
-    public function __construct($l)
+    public function hello()
     {
-        $this->Length = $l;
-    }
-
-    public function area()
-    {
-        echo $this->Length * $this->Length;
-        echo '<hr>';
-    }
-
-    public function perimeter()
-    {
-        echo $this->Length * 4;
-        echo '<hr>';
+        echo "hello there!"; echo '<hr>';
     }
 }
 
+class Example{
+    use MyTrait;
+}
 
+$e= new Example();
 
-$s = new Square(2);
-$s->area();
-$s->perimeter();
+$e->hello();
