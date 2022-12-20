@@ -1,12 +1,16 @@
 <?php
 
+interface ShapeInterface
+{
+    public function perimeter();
+}
 
 abstract class Shape // cant create object of it
 {
     abstract function area();
 }
 
-class Square extends Shape
+class Square extends Shape implements ShapeInterface
 {
     private $Length;
 
@@ -17,27 +21,19 @@ class Square extends Shape
 
     public function area()
     {
-        echo $this->Length * $this->Length; echo '<hr>';
+        echo $this->Length * $this->Length;
+        echo '<hr>';
+    }
+
+    public function perimeter()
+    {
+        echo $this->Length * 4;
+        echo '<hr>';
     }
 }
 
-class Circle extends Shape
-{
-    private $radias;
 
-    public function __construct($r)
-    {
-        $this->radias = $r;
-    }
-
-    public function area()
-    {
-        echo pi() * ($this->radias * $this->radias); echo '<hr>';
-    }
-}
 
 $s = new Square(2);
 $s->area();
-
-$c = new Circle(2);
-$c->area(2);
+$s->perimeter();
