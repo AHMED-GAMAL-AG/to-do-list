@@ -4,6 +4,7 @@ class Vehicle
 {
     protected $modle; // protected to acces it from children
     protected $year;
+    public static $constant = 'hey i am a constant value';
 
     public function __construct($m, $y)
     {
@@ -19,52 +20,15 @@ class Vehicle
     {
         return $this->modle;
     }
-
-    public function setyear($y)
+    public static function acces_constant()
     {
-        if (is_int($y)) {
-            $this->year = $y;
-        } else throw new Exception('please enter a degit');
+        echo self::$constant;
     }
-
-    public function getyear()
-    {
-        return $this->year;
-    }
-
-    public function start()
-    {
-        echo "{$this->modle} engine started!"; echo '<hr>';
-    }
-
-    public function print_info()
-    {
-        echo "{$this->modle} / {$this->year}"; 
-    }   
 }
 
-// is-a car is a vehicle
-class Car extends Vehicle
-{
-    private $color;
-
-    public function __construct($m , $y , $c)
-    {
-        parent::__construct($m , $y);
-        $this->color = $c;
-    }
-
-    public function print_info() // polymorphism , overriding
-    {
-        // echo "{$this->modle} / {$this->year}"; // i can acces them from parent class bec they are protected not private
-        parent::print_info(); // to get modle and year
-        echo " / {$this->color}"; 
-    }   
-}
-
-
-$v = new Vehicle('airplain','1999');
-$c = new Car('toyota','2023' , 'black');
-
-$c->start();
-$c->print_info(); //override from parent 
+$car = new Vehicle('BMW', 2023);
+echo Vehicle::$constant;
+echo '<hr>';
+$car->acces_constant();
+echo '<hr>';
+Vehicle::acces_constant();
