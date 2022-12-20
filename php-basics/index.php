@@ -2,8 +2,8 @@
 
 class Vehicle
 {
-    private $modle;
-    private $year;
+    protected $modle; // protected to acces it from children
+    protected $year;
 
     public function __construct($m, $y)
     {
@@ -32,16 +32,32 @@ class Vehicle
         return $this->year;
     }
 
-
     public function start()
     {
-        echo "{$this->modle} engine started!";
+        echo "{$this->modle} engine started!"; echo '<hr>';
     }
 }
 
-$v1 =  new Vehicle("BMW", 's');
-echo $v1->setmodel('toyota');
-echo $v1->getmodel();
-echo $v1->setyear(2023);
-echo '<hr>';
-$v1->start();
+// is-a car is a vehicle
+class Car extends Vehicle
+{
+    private $color;
+
+    public function __construct($m , $y , $c)
+    {
+        parent::__construct($m , $y);
+        $this->color = $c;
+    }
+
+    public function print_info()
+    {
+        echo "{$this->modle} / {$this->year}"; // i can acces them from parent class bec they are protected not private
+    }   
+}
+
+
+$v = new Vehicle('airplain','1999');
+$c = new Car('toyota','2023' , 'black');
+
+$c->start();
+$c->print_info();
