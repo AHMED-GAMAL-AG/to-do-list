@@ -1,34 +1,43 @@
 <?php
 
-class Vehicle
+
+abstract class Shape // cant create object of it
 {
-    protected $modle; // protected to acces it from children
-    protected $year;
-    public static $constant = 'hey i am a constant value';
+    abstract function area();
+}
 
-    public function __construct($m, $y)
+class Square extends Shape
+{
+    private $Length;
+
+    public function __construct($l)
     {
-        $this->modle = $m;
-        $this->year = $y;
-    }
-    public function setmodel($m)
-    {
-        $this->modle = $m;
+        $this->Length = $l;
     }
 
-    public function getmodel()
+    public function area()
     {
-        return $this->modle;
-    }
-    public static function acces_constant()
-    {
-        echo self::$constant;
+        echo $this->Length * $this->Length; echo '<hr>';
     }
 }
 
-$car = new Vehicle('BMW', 2023);
-echo Vehicle::$constant;
-echo '<hr>';
-$car->acces_constant();
-echo '<hr>';
-Vehicle::acces_constant();
+class Circle extends Shape
+{
+    private $radias;
+
+    public function __construct($r)
+    {
+        $this->radias = $r;
+    }
+
+    public function area()
+    {
+        echo pi() * ($this->radias * $this->radias); echo '<hr>';
+    }
+}
+
+$s = new Square(2);
+$s->area();
+
+$c = new Circle(2);
+$c->area(2);
