@@ -1,18 +1,32 @@
 <?php
 
-
-trait MyTrait
+class Example
 {
-    public function hello()
+
+    public $test;
+
+    public function __construct($t)
     {
-        echo "hello there!"; echo '<hr>';
+        $this->test = $t;
+        echo "hello there i am the constructor <hr> ";
+    }
+    public function __destruct()
+    {
+        echo "destroying method :( <hr> ";
+    }
+
+    public function __call($name, $arguments) // called when trying to acces Undefined method
+    {
+        echo "Undefined method {$name} <hr>";
+    }
+
+    public function __get($name) // called when trying to acces Undefined property
+    {
+        echo "unkown property {$name}  <hr>";
     }
 }
 
-class Example{
-    use MyTrait;
-}
-
-$e= new Example();
-
-$e->hello();
+$e = new Example('test');
+$e->hello(); // Undefined method
+echo $e->test;
+echo '<hr>';
