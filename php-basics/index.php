@@ -1,32 +1,18 @@
 <?php
 
-class Example
+function divide($a, $b)
 {
-
-    public $test;
-
-    public function __construct($t)
-    {
-        $this->test = $t;
-        echo "hello there i am the constructor <hr> ";
-    }
-    public function __destruct()
-    {
-        echo "destroying method :( <hr> ";
-    }
-
-    public function __call($name, $arguments) // called when trying to acces Undefined method
-    {
-        echo "Undefined method {$name} <hr>";
-    }
-
-    public function __get($name) // called when trying to acces Undefined property
-    {
-        echo "unkown property {$name}  <hr>";
+    if ($b == 0) {
+        throw new Exception("Cannot divide on 0. <hr> ");
+    } else {
+        echo $a / $b  . '<hr>';
     }
 }
 
-$e = new Example('test');
-$e->hello(); // Undefined method
-echo $e->test;
-echo '<hr>';
+try {
+    divide(8, 2);
+} catch (Exception $e) {
+    echo $e->getMessage();
+} finally {
+    echo "هطلع علطول شغال مش شغال مش فارقة";
+}
