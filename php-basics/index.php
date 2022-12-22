@@ -1,18 +1,28 @@
 <?php
 
-function divide($a, $b)
+
+class Task
 {
-    if ($b == 0) {
-        throw new Exception("Cannot divide on 0. <hr> ");
-    } else {
-        echo $a / $b  . '<hr>';
-    }
+    public $id;
+    public $description;
+    public $completed;
 }
 
 try {
-    divide(8, 2);
-} catch (Exception $e) {
-    echo $e->getMessage();
-} finally {
-    echo "هطلع علطول شغال مش شغال مش فارقة";
+    $pdo = new PDO('mysql:host=127.0.0.1;dbname=php_basics', 'root', '');
+} catch (PDOException $e) {
+    die($e->getMessage());
 }
+
+$query = $pdo->prepare('SELECT * FROM tasks');
+$query->execute();
+
+$tasks = $query->fetchAll(PDO::FETCH_CLASS, 'Task');
+
+foreach ($tasks as $task) {
+    echo "{$task->description} <hr>";
+}
+
+echo '<pre>';
+var_dump($tasks);
+echo '</pre>';
