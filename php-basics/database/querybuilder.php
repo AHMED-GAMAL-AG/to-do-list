@@ -29,9 +29,15 @@ class QueryBuilder
 
     public static function update($table, $id, $data)
     {
-        $get_key_names = implode(' = ? , ' , array_keys($data)) . ' = ?';
+        $get_key_names = implode(' = ? , ', array_keys($data)) . ' = ?';
         // first inded ? second index ?
         $query = self::$pdo->prepare(" UPDATE {$table} SET {$get_key_names} WHERE id = $id ");
         $query->execute(array_values($data)); // we use array_valuse bec it is an associative array
+    }
+
+    public static function delete($table , $id ,$column = 'id', $operator = '=') // by defauld delete from "id" column "= for example use > 0 to delete allS" "id value"
+    {
+        $query = self::$pdo->prepare(" DELETE FROM {$table} WHERE {$column} {$operator} {$id} ");
+        $query->execute();
     }
 }

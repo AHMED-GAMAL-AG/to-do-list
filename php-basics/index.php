@@ -9,6 +9,8 @@ QueryBuilder::update('tasks', 3, [
     'completed' => 1,
 ]);
 
+QueryBuilder::delete('tasks' , 0 ,'id' , '>'); // delete from tasks where id > 0
+
 // QueryBuilder::insert('tasks', [
 //     "description" => 'task from index after passing data ',
 //     'completed' => 1,
