@@ -1,23 +1,9 @@
 <?php
 
 
-class Task
-{
-    public $id;
-    public $description;
-    public $completed;
-}
+require 'database/_init.php';
 
-try {
-    $pdo = new PDO('mysql:host=127.0.0.1;dbname=php_basics', 'root', '');
-} catch (PDOException $e) {
-    die($e->getMessage());
-}
-
-$query = $pdo->prepare('SELECT * FROM tasks');
-$query->execute();
-
-$tasks = $query->fetchAll(PDO::FETCH_CLASS, 'Task');
+$tasks = QueryBuilder::get('tasks');
 
 foreach ($tasks as $task) {
     echo "{$task->description} <hr>";
