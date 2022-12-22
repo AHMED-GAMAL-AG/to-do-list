@@ -24,6 +24,14 @@ class QueryBuilder
 
         // ( ?, ? ) or (:description, :completed) these come from an array  first index second index
         $query = self::$pdo->prepare(" INSERT INTO $table ($get_key_names) VALUES ($get_data_count) ");
-        $query->execute(array_values($data));
+        $query->execute(array_values($data)); // we use array_valuse bec it is an associative array
+    }
+
+    public static function update($table, $id, $data)
+    {
+        $get_key_names = implode(' = ? , ' , array_keys($data)) . ' = ?';
+        // first inded ? second index ?
+        $query = self::$pdo->prepare(" UPDATE {$table} SET {$get_key_names} WHERE id = $id ");
+        $query->execute(array_values($data)); // we use array_valuse bec it is an associative array
     }
 }
