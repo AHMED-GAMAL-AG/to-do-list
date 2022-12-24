@@ -9,6 +9,12 @@
 </head>
 
 <body>
+
+    <form action="task/create" method="POST">
+        <input type="text" name ="description" placeholder="Enter a new task" />
+        <input type="submit" value="save" />
+    </form>
+
     <h1>Tasks</h1>
     <?php foreach ($tasks as $task) { ?>
         <ul>
