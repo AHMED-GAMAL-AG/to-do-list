@@ -1,21 +1,20 @@
 <?php
 require '_init.php';
 
-$tasks = QueryBuilder::get('tasks');
+$uri = trim($_SERVER['REQUEST_URI'], '/');
+$uri = str_replace('hsoub-php-internship/php-basics', '', $uri);
+$uri = trim($uri, '/');
 
-// QueryBuilder::update('tasks', 3, [
-//     'description' => 'updated task from index',
-//     'completed' => 1,
-// ]);
+echo $uri . '<hr>';
 
-// QueryBuilder::delete('tasks' , 0 ,'id' , '>'); // delete from tasks where id > 0
+switch ($uri) {
 
-// QueryBuilder::insert('tasks', [
-//     "description" => 'third task',
-//     'completed' => 1,
-// ]);
-
-    require 'index.view.php';
-?>
-
-
+    case '':
+        require 'pages/index.php';
+        break;
+    case 'about':
+        require 'pages/about.php';
+        break;
+    default:
+        throw new Exception('Page Not Found!');
+}
