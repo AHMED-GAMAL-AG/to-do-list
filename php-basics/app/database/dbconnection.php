@@ -4,7 +4,7 @@ class DBconnection
 {
     public static $pdo;
 
-    public static function connect()
+    public static function connect() // connect to database set host name database name ect..
     {
         try {
             // if (self::$pdo != null) {

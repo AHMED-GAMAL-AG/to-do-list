@@ -4,7 +4,7 @@ class QueryBuilder
 {
     public static $pdo;
 
-    public static function make(PDO $p)
+    public static function make(PDO $p) // make a $pdo = PDO  to deal with data base through it
     {
         self::$pdo = $p;
     }

@@ -1,6 +1,7 @@
 <?php
 
-$description = $_POST['description'];
+
+$description = Request::get('description');
 
 QueryBuilder::insert('tasks', [
     'description' => $description,

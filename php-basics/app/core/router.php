@@ -2,19 +2,31 @@
 
 class Router
 {
-    private $routes = [];
+    private $get = [];
+    private $post = [];
 
-    public static function make($r)
+    public static function make()  // return an array carying the rout paths
     {
         $router = new self;
-        $router->routes = $r;
         return $router;
     }
 
-    public function resolve($uri)
+    public function get($uri, $action)
     {
-        if (array_key_exists($uri, $this->routes)) {
-            require  $this->routes[$uri];
+        $this->get[$uri] = $action;
+        return $this;
+    }
+
+    public function post($uri, $action)
+    {
+        $this->post[$uri] = $action;
+        return $this;
+    }
+
+    public function resolve($uri ,$method) // check if the uri is valid 
+    {
+        if (array_key_exists($uri, $this->$method)) {
+            require $this->$method[$uri];
         } else {
             throw new Exception('Page Not Found!');
         }

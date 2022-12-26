@@ -11,16 +11,16 @@
 <body>
 
     <form action="task/create" method="POST">
-        <input type="text" name ="description" placeholder="Enter a new task" />
+        <input type="text" name="description" placeholder="Enter a new task" />
         <input type="submit" value="save" />
     </form>
 
     <h1>Tasks</h1>
-    <?php foreach ($tasks as $task) { ?>
+    <?php foreach ($tasks as $task) : ?>
         <ul>
             <li> <?= "{$task->description}" ?> </li>
         </ul>
-    <?php } ?>
+    <?php endforeach; ?>
 </body>
 
 </html>
