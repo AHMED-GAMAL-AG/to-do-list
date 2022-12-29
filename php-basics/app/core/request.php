@@ -10,7 +10,7 @@ class Request
         return trim($uri, '/');
     }
 
-    public static function get($key, $default = null)
+    public static function get($key, $default = null) // use GET or POST array if it is a get or post request
     {
         return $_GET[$key] ?? $_POST[$key] ?? $default; // if get is empty return post if empty return default 
     }

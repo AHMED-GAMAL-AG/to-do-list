@@ -10,7 +10,7 @@ class QueryBuilder
     }
 
 
-    public static function get(string $table)
+    public static function get(string $table) // take table name return data in the table
     {
         $query = self::$pdo->prepare(" SELECT * FROM {$table} ");
         $query->execute();

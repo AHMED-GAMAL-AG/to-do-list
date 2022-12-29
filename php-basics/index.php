@@ -1,8 +1,9 @@
 <?php
-require '_init.php';
+require '_init.php'; // import all needed files dont forget when create  a new one
+
 
 Router::make()
-    ->get('', 'app/controllers/index.php')
-    ->get('about', 'app/controllers/about.php')
-    ->post('task/create', 'app/controllers/task.create.php')
+    // 'route name' , [controller::function , 'function name as a string']
+    ->get('', [TaskController::class, 'index']) // get request
+    ->post('task/create', [TaskController::class, 'create']) // post request
     ->resolve(Request::uri(), Request::method());

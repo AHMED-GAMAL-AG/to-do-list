@@ -16,11 +16,12 @@
     </form>
 
     <h1>Tasks</h1>
-    <?php foreach ($tasks as $task) : ?>
-        <ul>
+    <ul>
+        <!-- $tasks comes from controllers/index.php  -->
+        <?php foreach ($tasks as $task) : ?>
             <li> <?= "{$task->description}" ?> </li>
-        </ul>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+    </ul>
 </body>
 
 </html>
