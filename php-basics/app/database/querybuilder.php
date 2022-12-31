@@ -1,10 +1,12 @@
 <?php
 
+namespace App\Database; // could be any name but this is the common aprouch used to make it uniqe if i want to make a class with the same name
+
 class QueryBuilder
 {
     public static $pdo;
 
-    public static function make(PDO $p) // make a $pdo = PDO  to deal with data base through it
+    public static function make(\PDO $p) // make a $pdo = PDO  to deal with data base through it
     {
         self::$pdo = $p;
     }
@@ -18,7 +20,7 @@ class QueryBuilder
 
         $query = self::$pdo->prepare($query_string);
         $query->execute();
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        return $query->fetchAll(\PDO::FETCH_OBJ);
     }
 
     public static function insert($table, $data) // insert data into table

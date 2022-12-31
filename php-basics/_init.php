@@ -1,5 +1,9 @@
 <?php
 
+use App\App;
+use App\Database\DBconnection;
+use App\Database\QueryBuilder;
+
 require 'app/app.php';  // this file return an array
 require 'app/database/dbconnection.php';
 require 'app/database/querybuilder.php';

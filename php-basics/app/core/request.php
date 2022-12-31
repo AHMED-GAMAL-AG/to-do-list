@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Core; // could be any name but this is the common aprouch used to make it uniqe if i want to make a class with the same name
+
 class Request
 {
     public static function uri()
