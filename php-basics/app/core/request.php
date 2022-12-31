@@ -4,9 +4,11 @@ class Request
 {
     public static function uri()
     {
+
         // $uri = trim($_SERVER['REQUEST_URI' ], '/'); // this get the pase and the passed data to the form
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); // get only the pass and ignores the data
-        $uri = str_replace('hsoub-php-internship/php-basics', '', $uri);
+        $uri = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . $uri;
+        $uri = str_replace(home(), '', $uri); // home() gets 'hsoub-php-internship/php-basics' to remove it with str_replace
         return trim($uri, '/');
     }
 

@@ -11,7 +11,11 @@ class TaskController
         } else {
             $tasks = QueryBuilder::get('tasks');
         }
-        require 'resources/index.view.php'; // the variable $ tasks is used in resources/index.view.php 
+
+        // function comes from helper.php file required in _init.php
+        view('index', [
+            'tasks' => $tasks,
+        ]);
     }
 
     public static function create()
@@ -21,7 +25,7 @@ class TaskController
         QueryBuilder::insert('tasks', [
             'description' => $description
         ]);
-        header("location: {$_SERVER['HTTP_REFERER']}"); // to show the last page i was on for ex if iam on قيد التنفيذ then return it not allways go to index
+        back(); // use back instead of header("location: {$_SERVER['HTTP_REFERER']}"); // to show the last page i was on for ex if iam on قيد التنفيذ then return it not allways go to index
     }
 
     public static function delete()
@@ -31,7 +35,7 @@ class TaskController
             QueryBuilder::delete('tasks', $id);
         }
 
-        header("location: {$_SERVER['HTTP_REFERER']}"); // to show the last page i was on for ex if iam on قيد التنفيذ then return it not allways go to index
+        back(); // use back instead of header("location: {$_SERVER['HTTP_REFERER']}"); // to show the last page i was on for ex if iam on قيد التنفيذ then return it not allways go to index
     }
 
     public static function update()
@@ -44,6 +48,6 @@ class TaskController
                 'completed' => $completed
             ]);
         }
-        header("location: {$_SERVER['HTTP_REFERER']}"); // to show the last page i was on for ex if iam on قيد التنفيذ then return it not allways go to index
+        back(); // use back instead of header("location: {$_SERVER['HTTP_REFERER']}"); // to show the last page i was on for ex if iam on قيد التنفيذ then return it not allways go to index
     }
 }

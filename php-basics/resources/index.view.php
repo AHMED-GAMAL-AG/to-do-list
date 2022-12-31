@@ -53,7 +53,8 @@
                     <div class="card-body p-3">
                         <ul class="nav nav-pills justify-content-center mb-3">
                             <li class="nav-item">
-                                <a href="http://localhost/hsoub-php-internship/php-basics/" class="nav-link">الكل</a>
+                                <!-- home() is a function that gets home page url defined in helper.php requierd it in _init.php -->
+                                <a href=<?= home() ?> class="nav-link">الكل</a>
                             </li>
                             <li class="nav-item">
                                 <a href="?completed=0" class="nav-link">قيد التنفيذ</a>

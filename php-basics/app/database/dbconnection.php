@@ -4,7 +4,7 @@ class DBconnection
 {
     public static $pdo;
 
-    public static function connect() // connect to database set host name database name ect..
+    public static function connect($config) // connect to database set host name database name ect..
     {
         try {
             // if (self::$pdo != null) {
@@ -13,7 +13,7 @@ class DBconnection
             //     self::$pdo = new PDO('mysql:host=localhost;dbname=php_basics', 'root', '')
             // } // use the ternary opperator for a short hand
 
-            self::$pdo = self::$pdo ?: new PDO('mysql:host=127.0.0.1;dbname=php_basics', 'root', '');
+            self::$pdo = self::$pdo ?: new PDO("mysql:host={$config['host']}; dbname={$config['name']}", $config['user'], $config['password']);
             return self::$pdo;
         } catch (PDOException $e) {
             die($e->getMessage());
