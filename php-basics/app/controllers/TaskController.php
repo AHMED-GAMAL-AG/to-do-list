@@ -4,9 +4,14 @@ class TaskController
 {
     public static function index()
     {
-        $tasks = QueryBuilder::get('tasks'); // tasks is the table name
+        $completed = Request::get('completed'); // if there is 'completed in the url' /hsoub-php-internship/php-basics/?completed=0 then passed to the variable 1 or 0
 
-        require 'resources/index.view.php';
+        if ($completed != null) {
+            $tasks = QueryBuilder::get('tasks', ['completed', '=', $completed]); // tasks is the table name
+        } else {
+            $tasks = QueryBuilder::get('tasks');
+        }
+        require 'resources/index.view.php'; // the variable $ tasks is used in resources/index.view.php 
     }
 
     public static function create()
@@ -16,8 +21,7 @@ class TaskController
         QueryBuilder::insert('tasks', [
             'description' => $description
         ]);
-
-        header('location: http://localhost/hsoub-php-internship/php-basics');
+        header("location: {$_SERVER['HTTP_REFERER']}"); // to show the last page i was on for ex if iam on قيد التنفيذ then return it not allways go to index
     }
 
     public static function delete()
@@ -26,7 +30,8 @@ class TaskController
         if ($id = Request::get('id')) {
             QueryBuilder::delete('tasks', $id);
         }
-        header('location: http://localhost/hsoub-php-internship/php-basics');
+
+        header("location: {$_SERVER['HTTP_REFERER']}"); // to show the last page i was on for ex if iam on قيد التنفيذ then return it not allways go to index
     }
 
     public static function update()
@@ -39,6 +44,6 @@ class TaskController
                 'completed' => $completed
             ]);
         }
-        header('location: http://localhost/hsoub-php-internship/php-basics');
+        header("location: {$_SERVER['HTTP_REFERER']}"); // to show the last page i was on for ex if iam on قيد التنفيذ then return it not allways go to index
     }
 }

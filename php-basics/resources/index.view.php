@@ -53,7 +53,7 @@
                     <div class="card-body p-3">
                         <ul class="nav nav-pills justify-content-center mb-3">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">الكل</a>
+                                <a href="http://localhost/hsoub-php-internship/php-basics/" class="nav-link">الكل</a>
                             </li>
                             <li class="nav-item">
                                 <a href="?completed=0" class="nav-link">قيد التنفيذ</a>
@@ -63,6 +63,7 @@
                             </li>
                         </ul>
                         <?php foreach ($tasks as $task) : ?>
+                            <!-- if task is completed=1 add 'completed' to the css to add a line throuth it -->
                             <div class="todo-item p-2 <?= !$task->completed ?: 'completed' ?>">
                                 <div class="p-1">
                                     <a href="task/update?id=<?= $task->id ?>&completed=<?= $task->completed ? '0' : '1' ?>">
