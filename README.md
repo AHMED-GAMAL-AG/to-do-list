@@ -1,6 +1,6 @@
 <div dir="ltr">
 <h1> PHP To-do List app </h1>
-a simple PHP to-do list app using OOP concepts and composer to handle packages.
+A simple PHP to-do list app using OOP concepts, monolog to save database logs, and composer to handle packages
 
 <h2> Requirements </h2>
 <ul>
