@@ -14,7 +14,7 @@ a simple PHP to-do list app using OOP concepts and composer to handle packages.
   <li>Copy this command to the terminal <code>composer install</code> then <code>composer dump-autoload</code></li>
   <li>Run Apache and MySQL using XAMPP</li>
   <li>import the database file  <code>php_basics.sql</code></li>
-  <li>Run the project through the browser via the url <code>localhost/php-basics</code></li>
+  <li>Run the project through the browser via the url <code>localhost/"YOUR FOLDER NAME"</code></li>
   <li><strong>Note:</strong> Note: Settings can be configured through the <code>config.php</code> file to suit your work environment</li>
 </ul>
 </div>
