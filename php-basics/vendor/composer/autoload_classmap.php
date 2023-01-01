@@ -6,5 +6,11 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\App' => $baseDir . '/app/app.php',
+    'App\\Controllers\\TaskController' => $baseDir . '/app/controllers/TaskController.php',
+    'App\\Core\\Request' => $baseDir . '/app/core/request.php',
+    'App\\Core\\Router' => $baseDir . '/app/core/router.php',
+    'App\\Database\\DBconnection' => $baseDir . '/app/database/dbconnection.php',
+    'App\\Database\\QueryBuilder' => $baseDir . '/app/database/querybuilder.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

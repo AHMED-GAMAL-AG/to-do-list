@@ -1,5 +1,13 @@
 {
     "require": {
         "monolog/monolog": "^3.2"
+    },
+    "autoload": {
+        "classmap": [
+            "app/"
+        ],
+        "files": [
+            "app/helpers.php"
+        ]
     }
 }

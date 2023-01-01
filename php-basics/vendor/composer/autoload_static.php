@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit4cc23686ef733d4781df7ed8d4c1da68
 {
+    public static $files = array (
+        'e320f53bb3364b7ed572ecc5ef33c5cf' => __DIR__ . '/../..' . '/app/helpers.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
@@ -29,6 +33,12 @@ class ComposerStaticInit4cc23686ef733d4781df7ed8d4c1da68
     );
 
     public static $classMap = array (
+        'App\\App' => __DIR__ . '/../..' . '/app/app.php',
+        'App\\Controllers\\TaskController' => __DIR__ . '/../..' . '/app/controllers/TaskController.php',
+        'App\\Core\\Request' => __DIR__ . '/../..' . '/app/core/request.php',
+        'App\\Core\\Router' => __DIR__ . '/../..' . '/app/core/router.php',
+        'App\\Database\\DBconnection' => __DIR__ . '/../..' . '/app/database/dbconnection.php',
+        'App\\Database\\QueryBuilder' => __DIR__ . '/../..' . '/app/database/querybuilder.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
