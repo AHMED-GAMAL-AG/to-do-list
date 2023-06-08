@@ -11,6 +11,7 @@ class Request
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); // get only the pass and ignores the data
         $uri = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . $uri;
         $uri = str_replace(home(), '', $uri); // home() gets 'hsoub-php-internship/php-basics' to remove it with str_replace
+        
         return trim($uri, '/');
     }
 

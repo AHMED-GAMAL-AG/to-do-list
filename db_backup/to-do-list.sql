@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 01, 2023 at 08:44 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Host: localhost:3306
+-- Generation Time: Jun 08, 2023 at 12:56 PM
+-- Server version: 8.0.31
+-- PHP Version: 8.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `php_basics`
+-- Database: `to-do-list`
 --
 
 -- --------------------------------------------------------
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tasks` (
-  `id` int(11) NOT NULL,
-  `description` text NOT NULL,
-  `completed` tinyint(1) NOT NULL DEFAULT 0
+  `id` int NOT NULL,
+  `description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `completed` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -38,10 +38,11 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `description`, `completed`) VALUES
-(15, 'task new', 1),
-(16, 'test', 0),
-(17, 'test', 0),
-(26, 'task new', 0);
+(30, 'هنطلع القمر', 1),
+(31, 'هنفطر من علي أول الماريخ', 0),
+(32, 'هنرجع من ورا الشمس', 1),
+(33, 'هنتقابل في المشمش', 0),
+(34, 'هنتغدي من علي أول المريخ', 0);
 
 --
 -- Indexes for dumped tables
@@ -61,7 +62,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
